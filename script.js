@@ -12,7 +12,7 @@ signUpButton.addEventListener('click', function signUp(event) {
 
 let todayDate = () => {
     let todayDateFormat = moment().format("MMMM Do YYYY");
-    let displayDate = document.getElementById("currentDay");
+    let displayDate = document.querySelector('#currentDay');
     displayDate.innerHTML = todayDateFormat;
     let currentHour = moment().format("HH");
 }
@@ -20,10 +20,11 @@ let todayDate = () => {
 
 const dayScheduler = {
     dayCreatorPerHour() {
-        for(let i = 0; i <= 24; i++){
+        let hoursArray = ['12:00 AM', '1:00 AM', '2:00 AM', '3:00 AM', '4:00 AM', '5:00 AM', '6:00 AM', '7:00 AM', '8:00 AM', '9:00 AM', '10:00 AM', '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM', '11:00 PM']
+        for(let i = 0; i < hoursArray.length; i++){
             let perHourInput = document.createElement('input')
             let perHourLabel = document.createElement('label')
-            let hourText = i
+            let hourText = hoursArray[i]
             perHourInput.type = 'text'
             perHourLabel.class = 'hour form-label'
             perHourLabel.innerHTML = hourText
@@ -32,17 +33,15 @@ const dayScheduler = {
         }
     },
     currentHourColor() {
-        var timeDiv = $(this).attr("id").split("-")[1];
-        
-        if (currentHour == timeDiv) {
-          $(this).addClass("present");
-          $(this).children(".description").addClass("white-text");
-        } else if (currentHour < timeDiv) {
-          $(this).removeClass("present");
-          $(this).addClass("future");
-        } else if (currentHour > timeDiv) {
-          $(this).removeClass("future");
-          $(this).addClass("past");
+        if (currentHour) {
+            addClass("present");
+            addClass("white-text");
+        } else if (currentHour) {
+            removeClass("present");
+            addClass("future");
+        } else if (currentHour) {
+            removeClass("future");
+            addClass("past");
         }
       }
 }
