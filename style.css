@@ -36,11 +36,6 @@ textarea {
   border-top: 1px solid white;
 }
 
-.hour {
-  background-color: #ffffff;
-  color: #000000;
-  border-top: 1px dashed #000000;
-}
 
 .past {
   background-color: #d3d3d3;
@@ -70,26 +65,6 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-/*
-Form
-*/
-
-.hide {
-  display: none;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  margin: 10px 25%;
-  border: 2px solid black;
-}
-
-.container {
-  background-color: #000000;
-  border: 1px solid white;
-  color: #ff6961;
-}
 
 /*
 Hours section
@@ -97,21 +72,31 @@ Hours section
 
 .hours-section {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  row-gap: 10px;
-  align-items: baseline;
-  padding: 0 12.5%;
-  margin: 0 12.5%;
+  flex-direction: column;
   border: 10px solid black;
 }
 
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 15px;
+  gap: 10px;
+}
+
 label {
+  display: flex;
   flex-grow: 1;
-  width: 30%;
+  width: 15%;
+  margin: auto 0;
 }
 
 input {
-  flex-grow: 4;
-  width: 70%;
+  display: flex;
+  flex-grow: 2;
+}
+
+.perHourButton {
+  display: flex;
+  flex-grow: 1;
 }
